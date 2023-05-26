@@ -11,7 +11,7 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
 
-mongoose.connect("mongodb+srv://ralphlance11:h7M3Ucm0TIJeCWmo@cluster0.ln7cqa9.mongodb.net/blogDB")
+mongoose.connect("mongodb://localhost:27017/blogDB")
 
 const blogSchema = mongoose.Schema(
     {
