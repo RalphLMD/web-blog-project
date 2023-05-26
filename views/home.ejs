@@ -1,0 +1,33 @@
+<%- include("partials/header") -%>
+
+<section class="home-section">
+    <h1>Home</h1>
+    <p> <%= contentHome %></p>
+
+    <div class="articles-container">
+        <% newArticle.forEach(function(article){ %>
+            <div class="d-inline-flex">
+                <div class="published-container mt-5">
+                    <div class="row">
+                        <div class="col">
+                            <h2><%=article.title%></h2>
+                            <div class="article-content">
+                                <p><%=article.content.substring(0, 50) + "..."%></p>
+                            </div>
+
+                            <form class="item" action="/delete" method="POST">
+                                <a class="btn btn-primary" href="/articles/<%=article._id%>">Go to article</a>
+
+                                <button class="btn btn-danger" name="articleId" value="<%= article._id %>"><i class='fas fa-trash-alt'></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</section>
+
+
+<%- include("partials/footer") -%>

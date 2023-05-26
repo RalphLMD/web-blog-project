@@ -1,0 +1,41 @@
+<%- include("partials/header") -%>
+
+<style>
+    body{
+        text-align: center;
+    }
+
+    .article-section {
+        margin: 2rem;
+    }
+
+    .published-container {
+        margin: auto;
+        padding: 2rem;
+        width: 500px;
+        border-radius: 5%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+    }   
+</style>
+
+<section class="article-section">
+    <h1>Article</h1>
+    
+    <div class="article-container">
+        <div class="published-container mt-5">
+            <div class="row">
+                <div class="col">
+                    <h2><%= articleTitle %></h2>
+                    <p><%= articleContent %></h2>
+                        <form class="item" action="/delete" method="POST">
+                            <a class="btn btn-primary" href="/">Go back</a>
+                            <button class="btn btn-danger" name="articleId" value="<%= articleId %>"><i class='fas fa-trash-alt'></i></button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include("partials/footer") -%>
