@@ -47,8 +47,6 @@ app.get("/", function(request, response){
     }).catch(function(err){
         console.log(err)
     })
-
-
 })
 
 // <% for (var i = 0; i<contentCompose.length; i++){ %>
@@ -137,11 +135,11 @@ app.post("/delete", function(request, response){
 
     blogArticle.findByIdAndDelete(articleId)
     .then(function(){
-        console.log("Deleted")
+        response.redirect("home")
+        console.log("Article has been deleted!")
     })
     .catch(function(err){
         console.log(err)
     })
-
     response.redirect("/")
 })
